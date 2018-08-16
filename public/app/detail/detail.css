@@ -1,0 +1,32 @@
+.detailconteiner {
+  background: white;
+  padding: 32px;
+  margin-top: 40px;
+}
+.detailconteiner .info .title {
+  line-height: 28px;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+.detailconteiner .info .condition {
+  font-size: 14px;
+}
+.detailconteiner .info .price {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.detailconteiner .info .salebtn {
+  height: 40px;
+  font-size: 18px;
+  background: #0680db;
+}
+.detailconteiner .description .title {
+  font-size: 30px;
+  color: #888a8e;
+}
+.detailconteiner .description .textR {
+  font-size: 16px;
+  line-height: 30px;
+  margin-top: 20px;
+}

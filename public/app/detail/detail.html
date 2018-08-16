@@ -1,0 +1,20 @@
+<search-component></search-component>
+<div class="container detailconteiner">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="{{$ctrl.product.thumbnail}}" class="image" width="680">
+        </div>
+        <div class="col-lg-4 info">
+            <p class="condition">{{$ctrl.product.condition == 'new' ? 'Nuevo': 'Usado'}} - {{$ctrl.product.sold_quantity}} vendidos</p>
+            <p class="title">{{$ctrl.product.title}}</p>
+            <p class="price"> $ {{$ctrl.product.price}}</p>
+            <button type='submit' class="btn salebtn btn-primary col-lg-10">Comprar</button>
+        </div>
+    </div>
+    <div class="row description">
+        <div class="col-lg-12">
+            <p class="title">Descripción del Producto</p>
+            <p class="textR">{{$ctrl.description.plain_text}}</p>
+       </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+.breadcrumbs {
+  padding: 16px 0px;
+}
+.breadcrumbs__list {
+  padding-left: 0px;
+  list-style: none;
+  line-height: 16px;
+  font-size: 14px;
+  font-weight: normal;
+}
+.breadcrumbs__item {
+  display: inline-block;
+  margin-left: 0px;
+  color: #999;
+}
+.arrow {
+  font-weight: normal;
+}
+.breadcrumbs__link {
+  font-size: 16px;
+  text-decoration: none;
+  color: #999;
+}
+.breadcrumbs__link:last-child {
+  font-weight: bold
+}
+.breadcrumbs__link:hover {
+  text-decoration: none;
+  color: #999;
+} 

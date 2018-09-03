@@ -1,0 +1,176 @@
+<html ng-app="app">
+<head>
+	<title>Test ML</title>
+	<!-- <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+	<!-- inject:css -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- endinject -->
+<!-- 
+    <link href="app/detail/detail.css" rel="stylesheet">
+	<link href="app/result/result.css" rel="stylesheet">
+	<link href="app/search/search.css" rel="stylesheet">
+	<link href="app/cluster/cluster.css" rel="stylesheet">
+	<link href="app/breadcrum/breadcrum.css" rel="stylesheet"> -->
+	 <!-- inject:js -->
+  <script src="mljs.js"></script>
+  <!-- endinject -->
+
+
+<!-- Begin Templates -->
+<script type="text/ng-template" id="app/breadcrum/breadcrum.html">
+
+<!-- ESTE ES UN COMENTARIO-->
+<div class="container">
+    <div class="row">
+        <nav role="navigation" class="breadcrumbs">
+            <ul class="breadcrumbs__list">
+                <li class="breadcrumbs__item" ng-repeat="filter in $ctrl.products.filters">
+                    <p ng-repeat="val in filter.values">
+                        <a href="" class="breadcrumbs__link" ng-repeat="category in val.path_from_root">{{category.name}} <span ng-class="val.path_from_root.length > 1 ? 'arrow' : 'arrow-none' "> &#62; </span></a></span>
+                      
+                    </p>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+
+
+
+</script>
+<script type="text/ng-template" id="app/cluster/cluster.html">
+
+<search-component></search-component>
+
+
+
+
+
+</script>
+<script type="text/ng-template" id="app/detail/detail.html">
+<search-component></search-component>
+<div class="container detailconteiner">
+    <div class="row">
+        <div class="col-lg-8">
+            <img src="{{$ctrl.product.thumbnail}}" class="image" width="680">
+        </div>
+        <div class="col-lg-4 info">
+            <p class="condition">{{$ctrl.product.condition == 'new' ? 'Nuevo': 'Usado'}} - {{$ctrl.product.sold_quantity}} vendidos</p>
+            <p class="title">{{$ctrl.product.title}}</p>
+            <p class="price"> $ {{$ctrl.product.price}}</p>
+            <button type='submit' class="btn salebtn btn-primary col-lg-10">Comprar</button>
+        </div>
+    </div>
+    <div class="row description">
+        <div class="col-lg-12">
+            <p class="title">Descripción del Producto</p>
+            <p class="textR">{{$ctrl.description.plain_text}}</p>
+       </div>
+    </div>
+</div>
+
+</script>
+<script type="text/ng-template" id="app/result/result.html">
+
+<breadcrum-component products="$ctrl.products"></breadcrum-component>
+
+
+
+<div class="container results">
+    <div class="row box" ng-repeat="prod in $ctrl.products.results | limitTo: 5">
+        <!-- <a href="#!/item/{{prod.id}}"> -->
+            <div ng-click="$ctrl.product(prod.id)">
+                <div class="col-md-2">
+                    <img src="{{prod.thumbnail}}" class="product-img">
+                </div>
+                <div class="col-md-7">
+                    <p class="price">$ {{prod.price}}</p>
+                    <p ng-show="prod.shipping.free_shipping" class="shipping-img">   
+                        <img src="app/img/ic_shipping.png" class="s_img"> 
+                    </p>
+                    <p class="title">{{prod.title}}</p>
+                </div>
+                <div class="col-md-3 location">{{prod.address.state_name}}</div>
+            <!-- </a> -->
+            </div>
+        </div>
+     </div>
+</div>
+</div>
+</script>
+<script type="text/ng-template" id="app/search/search.html">
+
+<div class="container-fluid fixpadding">
+    <div class="row header">
+        <div class="hidden-xs col-sm-2 col-md-2 col-lg-2">
+          <img src="app/img/Logo_ML.png" class="brand">
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 searchinput">
+            <form class="form-horizontal" role="form" name="formName">
+                <div class="form-group">
+                    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 icon">
+                        <input name="inputsearch" type="text" class="form-control" placeholder="Nunca dejes de buscar" ng-model="searchBy">
+                    </div>
+                    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 icon iconBtn">
+                        <button ng-click="$ctrl.search(searchBy)" class="imgbutton" type="submit">
+                            <img src="app/img/ic_Search.png">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<result-component products="$ctrl.products" ng-if="$ctrl.noData"></result-component>
+</script>
+
+<!-- End Templates -->
+
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div ng-view=""></div>
+	</div>
+
+
+
+ 
+<!-- <script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="app.module.js"></script>
+
+
+
+
+<script src="app/services/searchService.js"></script>
+<script src="app/cluster/cluster.module.js"></script>
+<script src="app/cluster/cluster.component.js"></script>
+<script src="app/cluster/cluster.routes.js"></script>
+
+<script src="app/breadcrum/breadcrum.module.js"></script>
+<script src="app/breadcrum/breadcrum.component.js"></script>
+<script src="app/breadcrum/breadcrum.routes.js"></script>
+
+<script src="app/detail/detail.module.js"></script>
+<script src="app/detail/detail.component.js"></script>
+<script src="app/detail/detail.routes.js"></script>
+
+<script src="app/result/result.module.js"></script>
+<script src="app/result/result.component.js"></script>
+<script src="app/result/result.routes.js"></script>
+
+<script src="app/search/search.module.js"></script>
+<script src="app/search/search.component.js"></script>
+<script src="app/search/search.routes.js"></script>
+
+ -->
+
+</body>
+</html>
+

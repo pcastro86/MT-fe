@@ -6,28 +6,11 @@ const concatCss = require('gulp-concat-css');
 const gutil = require('gulp-util');
 const  serve = require('gulp-serve');
 const imagemin = require('gulp-imagemin');
-<<<<<<< HEAD:public/gulpfile.js
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var buffer = require('vinyl-buffer');
-var babelify = require('babelify');
-const autoprefixer = require('gulp-autoprefixer');
-const del = require('del')
-const ngAnnotate = require('gulp-ng-annotate')
-const htmlify = require('gulp-angular-htmlify')
-const inject = require('gulp-inject')
-const htmlmin = require('gulp-htmlmin')
-const removeHtmlComments = require('gulp-remove-html-comments')
-const inlineAngularTemplates = require('gulp-inline-angular-templates')
-
-
-=======
 
 
 gulp.task('build', [ 'js', 'images', 'css']);
 gulp.task('serve', serve('./'));
 
->>>>>>> desarrollo:gulpfile.js
 
 gulp.task('build', ['index']);
 gulp.task('build-prod', ['html:prod'])

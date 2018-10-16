@@ -1,4 +1,0 @@
--revisar estilos de results (se eliminaron por error y los arme rapido otra vez pero no estn chequeados)
-- > de breadcrum final
-- babel (usado a mano en fn con ecm6). implementarlo con gulp
-- un script que llame a todos los scripts en index

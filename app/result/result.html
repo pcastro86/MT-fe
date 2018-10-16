@@ -1,0 +1,23 @@
+<breadcrum-component products="$ctrl.products"></breadcrum-component>
+
+
+
+<div class="container results">
+    <div class="row box" ng-repeat="prod in $ctrl.products.results | limitTo: 5">
+        <div ng-click="$ctrl.product(prod.id)">
+            <div class="col-md-2">
+                <img src="{{prod.thumbnail}}" class="product-img  center-block">
+            </div>
+            <div class="col-md-7">
+                <p class="price">$ {{prod.price}}</p>
+                <p ng-show="prod.shipping.free_shipping" class="shipping-img">
+                    <img src="app/img/ic_shipping.png" class="s_img">
+                </p>
+                <p class="title">{{prod.title}}</p>
+            </div>
+            <div class="col-md-3 location">{{prod.address.state_name}}</div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="container-fluid fixpadding">
+    <div class="row header">
+        <div class="hidden-xs col-sm-2 col-md-2 col-lg-2">
+            <a href='/'>
+                <img src="app/img/Logo_ML.png" class="brand">
+            </a>
+        </div>
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9 searchinput">
+            <form class="form-horizontal" role="form" name="formName">
+                <div class="form-group">
+                    <div class="col-xs-10 col-sm-11 col-md-11 col-lg-11 icon">
+                        <input name="inputsearch" type="text" class="form-control" placeholder="Nunca dejes de buscar"
+                            ng-model="searchBy">
+                    </div>
+                    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1 icon iconBtn">
+                        <button ng-click="$ctrl.search(searchBy)" class="imgbutton" type="submit">
+                            <img src="app/img/ic_Search.png">
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<result-component products="$ctrl.products" ng-if="$ctrl.noData"></result-component>
